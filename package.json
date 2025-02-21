@@ -1,0 +1,35 @@
+{
+  "name": "hexlet-ood",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "ood training project",
+  "main": "index.js",
+  "scripts": {
+    "jest": "NODE_OPTIONS=--experimental-vm-modules npx jest",
+    "jestCoverage": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage",
+    "prettier": "npx prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andrey-Yanchuk/hexlet-ood.git"
+  },
+  "author": "Yanchuk Andrey orpiy@mail.ru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andrey-Yanchuk/hexlet-ood/issues"
+  },
+  "homepage": "https://github.com/Andrey-Yanchuk/hexlet-ood#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "eslint": "^9.20.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jest": "^28.10.0",
+    "globals": "^15.15.0",
+    "jest": "^29.7.0",
+    "lodash": "^4.17.21",
+    "prettier": "^3.4.2"
+  },
+  "dependencies": {
+    "crc-32": "https://cdn.sheetjs.com/crc-32-latest/crc-32-latest.tgz"
+  }
+}
