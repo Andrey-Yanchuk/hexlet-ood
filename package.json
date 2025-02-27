@@ -30,6 +30,7 @@
     "prettier": "^3.4.2"
   },
   "dependencies": {
-    "crc-32": "https://cdn.sheetjs.com/crc-32-latest/crc-32-latest.tgz"
+    "crc-32": "https://cdn.sheetjs.com/crc-32-latest/crc-32-latest.tgz",
+    "yup": "^1.6.1"
   }
 }
