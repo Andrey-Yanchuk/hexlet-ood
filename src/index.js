@@ -37,3 +37,31 @@ export const getInvalidBooks = (
   return books.filter((book) => !schema.isValidSync(book));
 };
 /*-----------------------------------------------------*/
+export const protect = (target) => {
+  // target.constructor !== Object исключает стандартный объект {}, но позволяет работать с другими объектами, являющимися экземплярами классов.
+  if (
+    target === null ||
+    (typeof target !== "object" && typeof target !== "function") ||
+    target.constructor === Object
+  )
+    throw new Error("Target must be instance!");
+  return new Proxy(target, {
+    get(target, prop) {
+      if (typeof prop === "string" && prop.startsWith("_"))
+        throw new Error(`Acces to private property "${prop}" is denied!`);
+      if (!(prop in target))
+        throw new Error(`Property "${prop}" does not exist!`);
+      const value = target[prop];
+      return typeof value === "function" ? value.bind(target) : value;
+    },
+    set(target, prop, value) {
+      if (typeof prop === "string" && prop.startsWith("_"))
+        throw new Error(`Cannot modify private property "${prop}"`);
+      if (!(prop in target))
+        throw new Error(`Cannot create new property "${prop}"`);
+      target[prop] = value;
+      return true;
+    },
+  });
+};
+/*-----------------------------------------------------*/
